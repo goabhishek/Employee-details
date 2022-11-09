@@ -1,0 +1,26 @@
+.header-button {
+  background-color: #0000ff;
+  color: aliceblue;
+  width: 70px;
+  height: 40px;
+}
+.list-header {
+  color: black;
+
+  margin-top: 15px;
+}
+th {
+  color: black;
+  background-color: rgb(230, 237, 237);
+
+  /* border: 2px solid gray; */
+  padding: 20px;
+}
+td {
+  padding: 20px;
+  color: black;
+  background-color: aliceblue;
+}
+h1 {
+  color: rgb(15, 201, 139);
+}

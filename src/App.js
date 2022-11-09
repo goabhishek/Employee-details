@@ -1,12 +1,14 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Data from './pages';
+// import Header from './pages/Header';
+import Data from './pages/index';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Employee Management system</h1>
-      <Data />
-    </div>
+    <Routes>
+      <Route path='/' element={<Data />} />
+      {/* <Route path='/header' element={<Header />} /> */}
+    </Routes>
   );
 }
 
