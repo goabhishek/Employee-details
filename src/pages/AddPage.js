@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-
+/* eslint-disable no-undef */
+import React, { useState, useRef, useEffect } from 'react';
+import '../global.css';
 const AddPage = ({ employee, setEmployee, setIsAdding }) => {
   const [loginUser, setLoginUser] = useState({
     Name: '',
@@ -11,12 +12,46 @@ const AddPage = ({ employee, setEmployee, setIsAdding }) => {
     Status: '',
   });
 
+  const textInput = useRef(null);
+
+  useEffect(() => {
+    textInput.current.focus();
+  }, []);
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    if (!Name || !dob || !Salary || joiningDate || relievingDate || contact || Status) {
+      return loginUser;
+    }
+  };
+
+  const id = employee.length + 1;
+  const newEmployee = {
+    id,
+    Name,
+    dob,
+    Salary,
+    joiningDate,
+    relievingDate,
+    contact,
+    Status,
+  };
+  employee.push(newEmployee);
+  setEmployee(employee);
+  setIsAdding(false);
+
   return (
     <div>
-      <form onSubmit={handleAdd}>
-        <h1>Add Employee</h1>
+      <form onSubmit={handleAdd} className='form-main'>
+        {/* <h1>Add Employee</h1> */}
         <label htmlFor='Name'>Full Name</label>
-        <input type='text' id='Name' value={loginUser.Name} onChange={(e) => setLoginUser(e.target.value)} />
+        <input
+          type='text'
+          id='Name'
+          ref={textInput}
+          value={loginUser.Name}
+          onChange={(e) => setLoginUser(e.target.value)}
+        />
 
         <label htmlFor='dob'>Date Of Birth</label>
         <input type='number' id='dob' value={loginUser.dob} onChange={(e) => setLoginUser(e.target.value)} />

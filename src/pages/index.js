@@ -13,11 +13,13 @@ const Data = () => {
 
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
-  const [isEditing, setIsEditning] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = (id) => {
     // ..
-    console.log('Editid', id);
+    const [employee] = employee.filter((employee) => employee.id === id);
+    setSelectedEmployee(employee);
+    setIsEditing(true);
   };
   const handleDelete = (id) => {
     // ...
@@ -39,7 +41,7 @@ const Data = () => {
           employee={employee}
           selectedEmployee={selectedEmployee}
           setEmployee={setEmployee}
-          setIsAdding={setIsEditning}
+          setIsEditing={setIsEditing}
         />
       )}
     </div>
