@@ -3,7 +3,7 @@
 const employeesData = [
   {
     id: 1,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -13,7 +13,7 @@ const employeesData = [
   },
   {
     id: 2,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -23,7 +23,7 @@ const employeesData = [
   },
   {
     id: 3,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -33,7 +33,7 @@ const employeesData = [
   },
   {
     id: 4,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -43,7 +43,7 @@ const employeesData = [
   },
   {
     id: 5,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -53,7 +53,7 @@ const employeesData = [
   },
   {
     id: 6,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -63,7 +63,7 @@ const employeesData = [
   },
   {
     id: 7,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -73,7 +73,7 @@ const employeesData = [
   },
   {
     id: 8,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -83,7 +83,7 @@ const employeesData = [
   },
   {
     id: 9,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -93,7 +93,7 @@ const employeesData = [
   },
   {
     id: 10,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',
@@ -103,7 +103,7 @@ const employeesData = [
   },
   {
     id: 11,
-    Name: 'Abhi',
+    name: 'Abhi',
     dob: '14/02/1998',
     Salary: '20000',
     joiningDate: '10.26.26',

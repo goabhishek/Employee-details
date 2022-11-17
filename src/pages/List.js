@@ -22,7 +22,7 @@ const List = ({ employee, handleEdit, handleDelete }) => {
             employee.map((employee, i) => (
               <tr key={employee.id}>
                 <td>{i + 1}</td>
-                <td>{employee.Name}</td>
+                <td>{employee.name}</td>
                 <td>{employee.dob}</td>
                 <td>{employee.Salary}</td>
                 <td>{employee.joiningDate}</td>

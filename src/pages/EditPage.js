@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const EditPage = ({ employee, selectedEmployee, setEmployee, setIsEditing }) => {
   const id = selectedEmployee.id;
 
-  const [name, setName] = useState(selectedEmployee.Name);
+  const [name, setName] = useState(selectedEmployee.name);
   const [dob, setDob] = useState(selectedEmployee.dob);
   const [salary, setSalary] = useState(selectedEmployee.Salary);
 
@@ -14,6 +15,14 @@ const EditPage = ({ employee, selectedEmployee, setEmployee, setIsEditing }) => 
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    if (!name || !dob || !salary || !joiningDate || !relievingDate) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'All fields are required.',
+        showConfirmButton: true,
+      });
+    }
 
     const employee = {
       id,
@@ -33,6 +42,13 @@ const EditPage = ({ employee, selectedEmployee, setEmployee, setIsEditing }) => 
     }
     setEmployee(employee);
     setIsEditing(false);
+    Swal.fire({
+      icon: 'success',
+      title: 'Updated!',
+      text: `${employee.name} ${employee.dob}'s data has been updated.`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   return (

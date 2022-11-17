@@ -1,9 +1,11 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
 import React, { useState, useRef, useEffect } from 'react';
+import Swal from 'sweetalert2';
 import '../global.css';
 const AddPage = ({ employee, setEmployee, setIsAdding }) => {
   const [loginUser, setLoginUser] = useState({
-    Name: '',
+    name: '',
     dob: '',
     Salary: '',
     joiningDate: '',
@@ -20,25 +22,37 @@ const AddPage = ({ employee, setEmployee, setIsAdding }) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    if (!Name || !dob || !Salary || joiningDate || relievingDate || contact || Status) {
-      return loginUser;
+    if (!name || !dob || !Salary || joiningDate || relievingDate || contact || Status) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error!',
+        text: 'All fields are required.',
+        showConfirmButton: true,
+      });
     }
-  };
 
-  const id = employee.length + 1;
-  const newEmployee = {
-    id,
-    Name,
-    dob,
-    Salary,
-    joiningDate,
-    relievingDate,
-    contact,
-    Status,
+    const id = employee.length + 1;
+    const newEmployee = {
+      id,
+      name,
+      dob,
+      Salary,
+      joiningDate,
+      relievingDate,
+      contact,
+      Status,
+    };
+    employee.push(newEmployee);
+    setEmployee(employee);
+    setIsAdding(false);
+    Swal.fire({
+      icon: 'success',
+      title: 'Added!',
+      text: `${firstName} ${lastName}'s data has been Added.`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
-  employee.push(newEmployee);
-  setEmployee(employee);
-  setIsAdding(false);
 
   return (
     <div>
@@ -47,9 +61,9 @@ const AddPage = ({ employee, setEmployee, setIsAdding }) => {
         <label htmlFor='Name'>Full Name</label>
         <input
           type='text'
-          id='Name'
+          id='name'
           ref={textInput}
-          value={loginUser.Name}
+          value={loginUser.name}
           onChange={(e) => setLoginUser(e.target.value)}
         />
 

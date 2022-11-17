@@ -5,6 +5,7 @@ import EditPage from './EditPage';
 import Header from './Header';
 import List from './List';
 import '../global.css';
+import Swal from 'sweetalert2';
 import employeesData from '../empdata/employeesData';
 
 const Data = () => {
@@ -17,13 +18,36 @@ const Data = () => {
 
   const handleEdit = (id) => {
     // ..
+    // eslint-disable-next-line no-use-before-define
     const [employee] = employee.filter((employee) => employee.id === id);
+
     setSelectedEmployee(employee);
     setIsEditing(true);
   };
   const handleDelete = (id) => {
-    // ...
-    console.log('deleteid', id);
+    Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+    }).then((result) => {
+      if (result.value) {
+        // eslint-disable-next-line no-use-before-define
+        const [employee] = employee.filter((employee) => employee.id === id);
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Deleted!',
+          text: `${employee.name} ${employee.contact}'s data has been deleted.`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        setEmployee(employee.filter((employee) => employee.id !== id));
+      }
+    });
   };
 
   return (
